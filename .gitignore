@@ -1,0 +1,3 @@
+# ignore ipython notebook file #
+################################
+*.ipynb
