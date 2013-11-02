@@ -1,4 +1,4 @@
-
+import settings
 from textwrap import TextWrapper
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
@@ -6,11 +6,10 @@ from tweepy import Stream
 import tweepy
     
     
-consumer_key="lGVfc9ALaWkeY55VwGvpQA"
-consumer_secret="RHEWdk7wA6l3lJ8AhItHWBXaYguGMLVrPY1LwlOo"
-  
-access_token="2165970216-GKF2JmKsvI7Q7VmNJxyRxXQw3aGaoQDDbgrxIvm"
-access_token_secret="20QVGgYKKskM2VlPYyJTxTNIanxIFc8gFBlVRSF3lAicw"
+consumer_key = settings.CONSUMER_KEY
+consumer_secret = settings.CONSUMER_SECRET
+access_token = settings.ACCESS_TOKEN
+access_token_secret = settings.ACCESS_TOKEN_SECRET
 
 
 class StdOutListener(StreamListener):
