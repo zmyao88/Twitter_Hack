@@ -1,0 +1,190 @@
+{
+    "contributors": null,
+    "coordinates": null,
+    "created_at": "Sat Nov 02 21:15:08 +0000 2013",
+    "entities": {
+        "hashtags": [],
+        "symbols": [],
+        "urls": [
+            {
+                "display_url": "facebook.com/events/1385879\u2026",
+                "expanded_url": "https://www.facebook.com/events/1385879388312290/?ref=2&ref_dashboard_filter=upcoming",
+                "indices": [
+                    114,
+                    137
+                ],
+                "url": "https://t.co/dn8WDn3Lxn"
+            }
+        ],
+        "user_mentions": [
+            {
+                "id": 22201635,
+                "id_str": "22201635",
+                "indices": [
+                    3,
+                    13
+                ],
+                "name": "Mary Abler",
+                "screen_name": "maryabler"
+            },
+            {
+                "id": 572079091,
+                "id_str": "572079091",
+                "indices": [
+                    47,
+                    60
+                ],
+                "name": "EveryLibrary",
+                "screen_name": "EveryLibrary"
+            }
+        ]
+    },
+    "favorite_count": 0,
+    "favorited": false,
+    "filter_level": "medium",
+    "geo": null,
+    "id": 396747328540786688,
+    "id_str": "396747328540786688",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "lang": "en",
+    "place": null,
+    "possibly_sensitive": false,
+    "retweet_count": 0,
+    "retweeted": false,
+    "retweeted_status": {
+        "contributors": null,
+        "coordinates": null,
+        "created_at": "Sat Nov 02 17:13:26 +0000 2013",
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "urls": [
+                {
+                    "display_url": "facebook.com/events/1385879\u2026",
+                    "expanded_url": "https://www.facebook.com/events/1385879388312290/?ref=2&ref_dashboard_filter=upcoming",
+                    "indices": [
+                        99,
+                        122
+                    ],
+                    "url": "https://t.co/dn8WDn3Lxn"
+                }
+            ],
+            "user_mentions": [
+                {
+                    "id": 572079091,
+                    "id_str": "572079091",
+                    "indices": [
+                        32,
+                        45
+                    ],
+                    "name": "EveryLibrary",
+                    "screen_name": "EveryLibrary"
+                }
+            ]
+        },
+        "favorite_count": 0,
+        "favorited": false,
+        "geo": null,
+        "id": 396686500617674752,
+        "id_str": "396686500617674752",
+        "in_reply_to_screen_name": null,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "lang": "en",
+        "place": null,
+        "possibly_sensitive": false,
+        "retweet_count": 1,
+        "retweeted": false,
+        "source": "<a href=\"http://twitter.com/#!/download/ipad\" rel=\"nofollow\">Twitter for iPad</a>",
+        "text": "It's not too late to party with @EveryLibrary tonight in Long Beach. Get your tickets at the door! https://t.co/dn8WDn3Lxn",
+        "truncated": false,
+        "user": {
+            "contributors_enabled": false,
+            "created_at": "Fri Feb 27 22:43:41 +0000 2009",
+            "default_profile": true,
+            "default_profile_image": false,
+            "description": "Public librarian. Advocate.\nInnovation Leadership Resident @ Los Angeles Public Library",
+            "favourites_count": 2,
+            "follow_request_sent": null,
+            "followers_count": 37,
+            "following": null,
+            "friends_count": 60,
+            "geo_enabled": false,
+            "id": 22201635,
+            "id_str": "22201635",
+            "is_translator": false,
+            "lang": "en",
+            "listed_count": 0,
+            "location": "Los Angeles, CA",
+            "name": "Mary Abler",
+            "notifications": null,
+            "profile_background_color": "C0DEED",
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+            "profile_background_tile": false,
+            "profile_image_url": "http://pbs.twimg.com/profile_images/2177675397/profile_image_1335759677212_normal.jpg",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/2177675397/profile_image_1335759677212_normal.jpg",
+            "profile_link_color": "0084B4",
+            "profile_sidebar_border_color": "C0DEED",
+            "profile_sidebar_fill_color": "DDEEF6",
+            "profile_text_color": "333333",
+            "profile_use_background_image": true,
+            "protected": false,
+            "screen_name": "maryabler",
+            "statuses_count": 22,
+            "time_zone": null,
+            "url": null,
+            "utc_offset": null,
+            "verified": false
+        }
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "text": "RT @maryabler: It's not too late to party with @EveryLibrary tonight in Long Beach. Get your tickets at the door! https://t.co/dn8WDn3Lxn",
+    "truncated": false,
+    "user": {
+        "contributors_enabled": false,
+        "created_at": "Tue May 01 18:46:26 +0000 2012",
+        "default_profile": false,
+        "default_profile_image": false,
+        "description": "What I really want to do is Produce.",
+        "favourites_count": 66,
+        "follow_request_sent": null,
+        "followers_count": 410,
+        "following": null,
+        "friends_count": 330,
+        "geo_enabled": false,
+        "id": 568523637,
+        "id_str": "568523637",
+        "is_translator": false,
+        "lang": "en",
+        "listed_count": 21,
+        "location": "",
+        "name": "John Chrastka",
+        "notifications": null,
+        "profile_background_color": "BADFCD",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme12/bg.gif",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme12/bg.gif",
+        "profile_background_tile": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/568523637/1357604126",
+        "profile_image_url": "http://pbs.twimg.com/profile_images/2182402206/MrChrastka_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/2182402206/MrChrastka_normal.jpg",
+        "profile_link_color": "FF0000",
+        "profile_sidebar_border_color": "F2E195",
+        "profile_sidebar_fill_color": "FFF7CC",
+        "profile_text_color": "0C3E53",
+        "profile_use_background_image": true,
+        "protected": false,
+        "screen_name": "MrChrastka",
+        "statuses_count": 435,
+        "time_zone": null,
+        "url": null,
+        "utc_offset": null,
+        "verified": false
+    }
+}
