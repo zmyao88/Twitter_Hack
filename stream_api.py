@@ -4,6 +4,10 @@ from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
 import tweepy
+try:
+    import simplejson as json
+except:
+    import json
     
     
 consumer_key = settings.CONSUMER_KEY
@@ -15,6 +19,7 @@ access_token_secret = settings.ACCESS_TOKEN_SECRET
 class StdOutListener(StreamListener):
     ''' Handles data received from the stream. '''
  
+    '''
     def on_status(self, status):
         # Prints the text of the tweet
         #print('Tweet text: ' + status.text)
@@ -33,6 +38,7 @@ class StdOutListener(StreamListener):
         for hashtag in status.entities['hashtags']:
             print(hashtag['text'])
         return True
+    '''
  
     def on_error(self, status_code):
         print('Got an error with status code: ' + str(status_code))
@@ -42,13 +48,23 @@ class StdOutListener(StreamListener):
         print('Timeout...')
         return True # To continue listening
 
+    def on_data(self, data):
+        try:
+            data = json.loads(data)
+            text = data['text']
+            print text
+            #if 'halloween' in text:
+            
+        except BaseException, e:
+            print 'failed on_data: %s' % str(e)
+
 
 listener = StdOutListener()
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
  
 stream = Stream(auth, listener)
-stream.filter(track=['party','#party'])
+stream.filter(track=['nyc'])
 
 
 
