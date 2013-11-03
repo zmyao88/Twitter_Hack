@@ -1,3 +1,4 @@
+from pymongo import MongoClient
 import settings
 from textwrap import TextWrapper
 from tweepy.streaming import StreamListener
@@ -14,6 +15,10 @@ consumer_key = settings.CONSUMER_KEY
 consumer_secret = settings.CONSUMER_SECRET
 access_token = settings.ACCESS_TOKEN
 access_token_secret = settings.ACCESS_TOKEN_SECRET
+
+client = MongoClient('localhost', 27017)
+db = client['twitter-hack']
+col = db['nyc']
 
 
 class StdOutListener(StreamListener):
@@ -53,7 +58,8 @@ class StdOutListener(StreamListener):
             data = json.loads(data)
             text = data['text']
             print text
-            #if 'halloween' in text:
+            col.insert(data)
+            print 'load onto database'
             
         except BaseException, e:
             print 'failed on_data: %s' % str(e)
@@ -65,10 +71,5 @@ auth.set_access_token(access_token, access_token_secret)
  
 stream = Stream(auth, listener)
 stream.filter(track=['nyc'])
-
-
-
-
-
 
 
