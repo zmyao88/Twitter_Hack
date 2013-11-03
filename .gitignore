@@ -6,3 +6,7 @@
 ################################
 settings.py
 *.pyc
+# node dependencies #
+################################
+node_modules
+npm-debug.log

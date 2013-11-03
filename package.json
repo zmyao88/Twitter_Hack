@@ -1,0 +1,12 @@
+{
+    "name" : "twitter-hack-node",
+    "description" : "various ways to interact with live data from twitter streaming api and socket-io",
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/zmyao88/Twitter_Hack.git"
+    },
+    "dependencies" : {
+        "ngram" : "0.0.3",
+        "socket.io" : "0.9.16"
+    }
+}
