@@ -56,8 +56,10 @@ class StdOutListener(StreamListener):
     def on_data(self, data):
         try:
             data = json.loads(data)
-            text = data['text']
-            print text
+            if data['user']['geo_enabled'] == True:
+                if data['coordinates']:
+                    coor = data['coordinates']
+                    text = data['text']
             col.insert(data)
             print 'load onto database'
             
