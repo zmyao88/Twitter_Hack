@@ -56,13 +56,13 @@ class StdOutListener(StreamListener):
                 #check if it's in nyc bound
                 ne = [40.92285206859968, -73.66264343261719]
                 sw = [40.558156335842106, -74.27444458007812]
-                #if _check_bounds(coor, ne, sw):
-                print "inserted: %s" % text
-                send_data = json.dumps(data_insert)
-                send_to_socket(send_data)
-                print "message sent!"
-                collection.insert(data_insert)
-                # send data to a tcp server interfacing with node
+                if _check_bounds(coor, ne, sw):
+                    print "inserted: %s" % text
+                    send_data = json.dumps(data_insert)
+                    send_to_socket(send_data)
+                    print "message sent!"
+                    collection.insert(data_insert)
+                    # send data to a tcp server interfacing with node
 
             
         except BaseException, e:
@@ -89,7 +89,7 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
  
 stream = Stream(auth, listener)
-track_list = ['party']        
+track_list = ['nyc']        
 try:
     stream.filter(track=track_list)
 except KeyboardInterrupt:
