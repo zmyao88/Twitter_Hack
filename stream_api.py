@@ -1,3 +1,4 @@
+import os
 from pymongo import MongoClient
 import sys
 import settings
@@ -5,6 +6,7 @@ from textwrap import TextWrapper
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
+import socket
 import tweepy
 try:
     import simplejson as json
@@ -21,6 +23,12 @@ client = MongoClient('localhost', 27017)
 db = client['twitter-hack']
 collection = db['nyc']
 
+sock_loc = "/tmp/twitter_socket"
+if os.path.exists(sock_loc):
+    os.remove(sock_loc)
+s = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
+s.bind(sock_loc)
+print "connected to %s" % sock_loc
 
 class StdOutListener(StreamListener):
     ''' Handles data received from the stream. '''
@@ -51,6 +59,7 @@ class StdOutListener(StreamListener):
                 if _check_bounds(coor, ne, sw):
                     collection.insert(data_insert)
                     print "inserted: %s" % text
+                    send_to_socket(data_insert)
                     # send data to a tcp server interfacing with node
 
             
@@ -63,7 +72,16 @@ def _check_bounds(coordinates, ne, sw):
         if sw[0] < lat < ne[0]:
             return True
     return False
-    
+
+def send_to_socket(data):
+    client = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
+    client.connect(sock_loc)
+    send_data = json.dumps(data)
+    client.send(send_data)
+    client.close()
+
+
+
 
 listener = StdOutListener()
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
