@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+import sys
 import settings
 from textwrap import TextWrapper
 from tweepy.streaming import StreamListener
@@ -74,5 +75,5 @@ try:
     stream.filter(track=track_list)
 except KeyboardInterrupt:
     print 'Interupted'
-
+    sys.exit(0)
 
