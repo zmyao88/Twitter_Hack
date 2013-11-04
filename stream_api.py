@@ -18,32 +18,11 @@ access_token_secret = settings.ACCESS_TOKEN_SECRET
 
 client = MongoClient('localhost', 27017)
 db = client['twitter-hack']
-col = db['nyc']
+collection = db['nyc']
 
 
 class StdOutListener(StreamListener):
     ''' Handles data received from the stream. '''
- 
-    '''
-    def on_status(self, status):
-        # Prints the text of the tweet
-        #print('Tweet text: ' + status.text)
-        if status.user.geo_enabled:
-            if status.coordinates:
-                print 'Coordinates: ', status.coordinates
-                print ('User id: ' + status.user.id_str)
-
-        #print('ID_str: ' + status.id_str)
-        #print('Tweet text: ' + status.text)
-        
- 
-        # There are many options in the status object,
-        # hashtags can be very easily accessed.
-        
-        for hashtag in status.entities['hashtags']:
-            print(hashtag['text'])
-        return True
-    '''
  
     def on_error(self, status_code):
         print('Got an error with status code: ' + str(status_code))
@@ -56,12 +35,19 @@ class StdOutListener(StreamListener):
     def on_data(self, data):
         try:
             data = json.loads(data)
-            if data['user']['geo_enabled'] == True:
-                if data['coordinates']:
-                    coor = data['coordinates']
-                    text = data['text']
-            col.insert(data)
-            print 'load onto database'
+            if data['user']['geo_enabled'] and data['coordinates']:
+                coor = data['coordinates']
+                text = data['text']
+                user = data['user']
+                data_insert = {
+                    'coordinates' : coor,
+                    'text' : text,
+                    'user' : user
+                }
+                collection.insert(data_insert)
+                print "inserted: %s" % text
+                # send data to a tcp server interfacing with node
+
             
         except BaseException, e:
             print 'failed on_data: %s' % str(e)
