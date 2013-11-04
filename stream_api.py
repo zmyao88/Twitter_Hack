@@ -69,6 +69,10 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
  
 stream = Stream(auth, listener)
-stream.filter(track=['nyc'])
+track_list = ['NYC']        
+try:
+    stream.filter(track=track_list)
+except KeyboardInterrupt:
+    print 'Interupted'
 
 
