@@ -1,6 +1,7 @@
 {
     "name" : "twitter-hack-node",
     "description" : "various ways to interact with live data from twitter streaming api and socket-io",
+    "main": "serv.js",
     "repository" : {
         "type" : "git",
         "url" : "http://github.com/zmyao88/Twitter_Hack.git"
