@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>NYC twitter</title>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+	<!-- define a DIV into which the map will appear. Make it take up the whole window -->
+	<div style="width:100%; height:100%" id="map"></div>
+<script type='text/javascript'>
+    $(function(){
+        window.map = map_init();
+    });
+
+    var map_init = function(){
+        var lat_lng = new L.LatLng(40.748683, -73.9843);
+        var map_zoom = 9;
+        var ne = new L.LatLng(40.92285206859968, -73.66264343261719);
+        var sw = new L.LatLng(40.558156335842106, -74.27444458007812);
+        var bounds = new L.LatLngBounds(sw, ne);
+        var map = new L.Map('map', {
+                    maxBounds: bounds,
+                }).setView(lat_lng, map_zoom);
+        var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+        map.addLayer(osm);
+        return map;
+    }
+</script>
+ 
+</body>
+</html>

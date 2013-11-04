@@ -44,14 +44,25 @@ class StdOutListener(StreamListener):
                     'text' : text,
                     'user' : user
                 }
-                collection.insert(data_insert)
-                print "inserted: %s" % text
-                # send data to a tcp server interfacing with node
+                #check if it's in nyc bound
+                ne = [40.92285206859968, -73.66264343261719]
+                sw = [40.558156335842106, -74.27444458007812]
+                if _check_bounds(coor, ne, sw):
+                    collection.insert(data_insert)
+                    print "inserted: %s" % text
+                    # send data to a tcp server interfacing with node
 
             
         except BaseException, e:
             print 'failed on_data: %s' % str(e)
 
+def _check_bounds(coordinates, ne, sw):
+    lon, lat = coordinates['coordinates']
+    if sw[1] < lon < ne[1]:
+        if sw[0] < lat < ne[0]:
+            return True
+    return False
+    
 
 listener = StdOutListener()
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
