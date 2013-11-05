@@ -54,11 +54,14 @@ class StdOutListener(StreamListener):
                     'text' : text,
                     'user' : user
                 }
-                send_data = json.dumps(data_insert)
-                send_to_socket(send_data)
-                print "message sent!"
-                collection.insert(data_insert)
-                print "inserted: %s" % text
+                ne = [40.92285206859968, -73.66264343261719]
+                sw = [40.558156335842106, -74.27444458007812]
+                if _check_bounds(coor, ne, sw):
+                    send_data = json.dumps(data_insert)
+                    send_to_socket(send_data)
+                    print "message sent!"
+                    collection.insert(data_insert)
+                    print "inserted: %s" % text
 
         except KeyboardInterrupt:
             print '\nciao for now'
@@ -88,8 +91,7 @@ def run(track_list):
     auth.set_access_token(access_token, access_token_secret)
      
     stream = Stream(auth, listener)
-    bounding_box = [sw['lon'], sw['lat'], ne['lon'], ne['lat']]
-    stream.filter(locations=bounding_box, track=track_list)
+    stream.filter(track=track_list)
 
     #stream.filter(track=track_list)
 
