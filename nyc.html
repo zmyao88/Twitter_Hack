@@ -22,7 +22,8 @@
         var map = new L.Map('map', {
                     maxBounds: bounds,
                 }).setView(lat_lng, map_zoom);
-        var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+        var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/' + 
+                '{z}/{x}/{y}.png');
         map.addLayer(osm);
         return map;
     }

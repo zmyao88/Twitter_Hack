@@ -83,17 +83,18 @@ def send_to_socket(data):
 
 
 
+def run():
+    listener = StdOutListener()
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+     
+    stream = Stream(auth, listener)
+    track_list = ['nyc']        
+    try:
+        stream.filter(track=track_list)
+    except KeyboardInterrupt:
+        print 'Interupted'
+        sys.exit(0)
 
-listener = StdOutListener()
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
- 
-stream = Stream(auth, listener)
-track_list = ['nyc']        
-try:
-    stream.filter(track=track_list)
-except KeyboardInterrupt:
-    print 'Interupted'
-    sys.exit(0)
-
-
+if __name__ == '__main__':
+    run()
