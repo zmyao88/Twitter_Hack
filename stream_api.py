@@ -83,18 +83,18 @@ def send_to_socket(data):
 
 
 
-def run():
+def run(track_list):
     listener = StdOutListener()
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
      
     stream = Stream(auth, listener)
-    track_list = ['election']
     stream.filter(track=track_list)
 
 if __name__ == '__main__':
     try:
-        run()
+        track_list = sys.argv[1:]
+        run(track_list)
     except KeyboardInterrupt:
         print '\nciao for now'
         sys.exit(0)
