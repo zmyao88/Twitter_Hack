@@ -54,14 +54,16 @@ class StdOutListener(StreamListener):
                     'text' : text,
                     'user' : user
                 }
-                print "inserted: %s" % text
                 send_data = json.dumps(data_insert)
                 send_to_socket(send_data)
                 print "message sent!"
                 collection.insert(data_insert)
-                # send data to a tcp server interfacing with node
+                print "inserted: %s" % text
 
-            
+        except KeyboardInterrupt:
+            print '\nciao for now'
+            sys.exit(0)
+
         except BaseException, e:
             print 'failed on_data: %s' % str(e)
 
