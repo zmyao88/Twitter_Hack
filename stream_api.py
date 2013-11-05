@@ -89,12 +89,12 @@ def run():
     auth.set_access_token(access_token, access_token_secret)
      
     stream = Stream(auth, listener)
-    track_list = ['nyc']        
-    try:
-        stream.filter(track=track_list)
-    except KeyboardInterrupt:
-        print 'Interupted'
-        sys.exit(0)
+    track_list = ['election']
+    stream.filter(track=track_list)
 
 if __name__ == '__main__':
-    run()
+    try:
+        run()
+    except KeyboardInterrupt:
+        print '\nciao for now'
+        sys.exit(0)
