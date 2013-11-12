@@ -55,8 +55,8 @@ class StdOutListener(StreamListener):
                     'user' : user
                 }
                 send_data = json.dumps(data_insert)
-                send_to_socket(send_data)
-                print "message sent!"
+                #send_to_socket(send_data)
+                #print "message sent!"
                 collection.insert(data_insert)
                 print "inserted: %s" % text
 
